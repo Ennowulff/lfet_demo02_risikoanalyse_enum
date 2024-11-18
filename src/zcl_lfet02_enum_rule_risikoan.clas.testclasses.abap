@@ -1,12 +1,11 @@
-CLASS ltcl_simple DEFINITION FINAL FOR TESTING
-  DURATION SHORT
-  RISK LEVEL HARMLESS.
+CLASS ltcl_simple DEFINITION FINAL
+  FOR TESTING RISK LEVEL HARMLESS DURATION SHORT.
 
   PRIVATE SECTION.
-    "Die Logik zur Entscheidungstabelle
+    "! Die Logik zur Entscheidungstabelle
     DATA model TYPE REF TO zcl_lfet02_enum_modl_risikoana.
 
-    "constants
+    " constants
     CONSTANTS c_rule_1 TYPE string VALUE `1`.
     CONSTANTS c_rule_2 TYPE string VALUE `2`.
     CONSTANTS c_rule_3 TYPE string VALUE `3`.
@@ -16,13 +15,13 @@ CLASS ltcl_simple DEFINITION FINAL FOR TESTING
     CONSTANTS c_rule_7 TYPE string VALUE `7`.
 
     METHODS setup.
+
     METHODS test_et
-      IMPORTING
-        b01  TYPE zif_lfet02_enum_risikoanalyse=>enum_rechtl_rahmenbedingungen
-        b02  TYPE zif_lfet02_enum_risikoanalyse=>enum_ressourcen_abhaengigkeit
-        b03  TYPE zif_lfet02_enum_risikoanalyse=>enum_projektumfang
-        a01  TYPE zif_lfet02_enum_risikoanalyse=>enum_risikoanalyse
-        rule TYPE string.
+      IMPORTING b01  TYPE zif_lfet02_enum_risikoanalyse=>enum_rechtl_rahmenbedingungen
+                b02  TYPE zif_lfet02_enum_risikoanalyse=>enum_ressourcen_abhaengigkeit
+                b03  TYPE zif_lfet02_enum_risikoanalyse=>enum_projektumfang
+                a01  TYPE zif_lfet02_enum_risikoanalyse=>enum_risikoanalyse
+                rule TYPE string.
 
     METHODS r01 FOR TESTING.
     METHODS r02 FOR TESTING.
@@ -127,7 +126,7 @@ CLASS ltcl_simple IMPLEMENTATION.
 
 ENDCLASS.
 
-CLASS lcl_cust_risikoanalyse DEFINITION INHERITING FROM zcl_lfet02_enum_modl_risikoana.
+CLASS lcl_cust_risikoanalyse_okay DEFINITION INHERITING FROM zcl_lfet02_enum_modl_risikoana.
   PUBLIC SECTION.
   PROTECTED SECTION.
     METHODS cust_is_projektumfang REDEFINITION.
@@ -135,8 +134,11 @@ CLASS lcl_cust_risikoanalyse DEFINITION INHERITING FROM zcl_lfet02_enum_modl_ris
     METHODS cust_is_ressourcen_abhaeng REDEFINITION.
 ENDCLASS.
 
+CLASS lcl_cust_risikoanalyse_not_ok DEFINITION INHERITING FROM zcl_lfet02_enum_modl_risikoana.
+  PUBLIC SECTION.
+ENDCLASS.
 
-CLASS lcl_cust_risikoanalyse IMPLEMENTATION.
+CLASS lcl_cust_risikoanalyse_okay IMPLEMENTATION.
   METHOD cust_is_projektumfang.
     result = zif_lfet02_enum_risikoanalyse=>projektumfang-mittel.
   ENDMETHOD.
@@ -150,6 +152,9 @@ CLASS lcl_cust_risikoanalyse IMPLEMENTATION.
   ENDMETHOD.
 ENDCLASS.
 
+CLASS lcl_cust_risikoanalyse_not_ok IMPLEMENTATION.
+ENDCLASS.
+
 
 CLASS ltcl_cust DEFINITION FINAL
   FOR TESTING RISK LEVEL HARMLESS DURATION SHORT.
@@ -158,14 +163,15 @@ CLASS ltcl_cust DEFINITION FINAL
     " constants
     CONSTANTS c_rule_1 TYPE string VALUE `1`.
 
-    METHODS r01 FOR TESTING.
+    METHODS cust_class_okay FOR TESTING.
+    METHODS cust_class_not_okay FOR TESTING.
 ENDCLASS.
 
 
 CLASS ltcl_cust IMPLEMENTATION.
-  METHOD r01.
+  METHOD cust_class_okay.
     " Die Logik zur Entscheidungstabelle
-    DATA model TYPE REF TO lcl_cust_risikoanalyse.
+    DATA model TYPE REF TO lcl_cust_risikoanalyse_okay.
 
     model = NEW #( ).
 
@@ -178,6 +184,22 @@ CLASS ltcl_cust IMPLEMENTATION.
     " Ermittlung der verwendeten Regel
     cl_abap_unit_assert=>assert_equals( exp = c_rule_1
                                         act = model->trace->get_trace( )-used_rule  ).
+  ENDMETHOD.
+
+  METHOD cust_class_not_okay.
+    " Die Logik zur Entscheidungstabelle
+    DATA model TYPE REF TO lcl_cust_risikoanalyse_not_ok.
+
+    model = NEW #( ).
+
+    " Risikoermittlung durchführen
+    TRY.
+        zcl_lfet02_enum_rule_risikoan=>execute( model ).
+        cl_abap_unit_assert=>fail( ).
+      CATCH /rbgrp/cx_redefine INTO DATA(error).
+        cl_abap_unit_assert=>assert_bound( error ).
+    ENDTRY.
+
   ENDMETHOD.
 ENDCLASS.
 
