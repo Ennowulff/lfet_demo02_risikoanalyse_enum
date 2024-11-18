@@ -1,4 +1,11 @@
 # lfet_demo02_risikoanalyse_enum
+
+## dependencies
+
+package /RBGRP/MAIN which contains general exceptions
+
+## Demo report 
+
 Demo 02 Risikoanalyse mit ENUM
 
 PROG ZZLFET02_DEMO01_ENUM
