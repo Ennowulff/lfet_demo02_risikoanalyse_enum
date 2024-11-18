@@ -1,4 +1,4 @@
-CLASS zcl_lfet02_rule_risikoan_enum DEFINITION
+CLASS zcl_lfet02_enum_rule_risikoan DEFINITION
   PUBLIC FINAL
   CREATE PUBLIC.
 
@@ -76,7 +76,7 @@ CLASS zcl_lfet02_rule_risikoan_enum DEFINITION
 ENDCLASS.
 
 
-CLASS zcl_lfet02_rule_risikoan_enum IMPLEMENTATION.
+CLASS zcl_lfet02_enum_rule_risikoan IMPLEMENTATION.
   METHOD execute.
     " Prolog Standard <----
 
