@@ -22,3 +22,7 @@ implementiert zif_lfet02_enum_risikoanalyse
 - GET_TEXT zur Ermittlung der Beschreibung zu ENUM-Werten
 - GET_ENUM_VAL_x zur Ermittlung des ENUMS zu nicht eindeutigen Werten (Intervalle)
 
+# Implementierung Model
+
+Idee: generierte Model-Klasse kann out-of-the-box verwendet werden, indem die Werte mit SET_x gesetzt werden.
+Für eine 
