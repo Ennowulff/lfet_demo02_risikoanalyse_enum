@@ -1,7 +1,8 @@
 # lfet_demo02_risikoanalyse_enum
 Demo 02 Risikoanalyse mit ENUM
 
-PROG 
+PROG ZZLFET02_DEMO01_ENUM
+
 ![image](https://github.com/user-attachments/assets/d8f9df56-fba3-489b-bc1c-36918d4a4625)
 
 
