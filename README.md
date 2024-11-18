@@ -2,7 +2,7 @@
 
 ## dependencies
 
-package /RBGRP/MAIN which contains general exceptions
+package [/RBGRP/MAIN](https://github.com/Ennowulff/rbgrp-main) which contains general exceptions
 
 ## Demo report 
 
