@@ -13,7 +13,7 @@ PROG ZZLFET02_DEMO01_ENUM
 ![image](https://github.com/user-attachments/assets/d8f9df56-fba3-489b-bc1c-36918d4a4625)
 
 
-## zif_lfet02_enum_risikoanalyse
+# zif_lfet02_enum_risikoanalyse
 
 Interface für Model
 
@@ -29,7 +29,7 @@ implementiert zif_lfet02_enum_risikoanalyse
 - GET_TEXT zur Ermittlung der Beschreibung zu ENUM-Werten
 - GET_ENUM_VAL_x zur Ermittlung des ENUMS zu nicht eindeutigen Werten (Intervalle)
 
-# Implementierung Model
+## Implementierung Model
 
-Idee: generierte Model-Klasse kann out-of-the-box verwendet werden, indem die Werte mit SET_x gesetzt werden.
-Für eine 
+die generierte Model-Klasse kann out-of-the-box verwendet werden, indem die Werte mit SET_x gesetzt werden.
+Für eine Programmierung, bei der die Werte aufwändiger ermittelt werden müssen, kann eine Ableitung erzeugt und die CUST_IS_* Methoden ausprogrammiert werden.
