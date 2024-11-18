@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_LFET02_ENUM_MODL_RISIKOANA</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>LFET Demo02: Model Implementation Risikoanalyse</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CUST_IS_PROJEKTUMFANG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Kundencoding für IS_PROJEKTUMFANG</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CUST_IS_RECHTL_RAHMENBEDING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Kundencoding für IS_RECHTL_RAHMENBEDING</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CUST_IS_RESSOURCEN_ABHAENG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Kundencoding für IS_RESSOURCEN_ABHAENGIGKEIT</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>RAISE_IF_INITIAL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Raise Exception if given value is initial</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>STATE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Aktueller ermittelter Aktionswert</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Bedingungswerte</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CUST_IS_PROJEKTUMFANG</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Ergebniswert</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CUST_IS_RECHTL_RAHMENBEDING</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Ergebniswert</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CUST_IS_RESSOURCEN_ABHAENG</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Ergebniswert</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>RAISE_IF_INITIAL</CMPNAME>
+     <SCONAME>I_VALUE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>any ENUM value</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
