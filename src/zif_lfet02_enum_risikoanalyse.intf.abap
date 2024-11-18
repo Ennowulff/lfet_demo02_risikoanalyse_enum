@@ -3,6 +3,7 @@ INTERFACE zif_lfet02_enum_risikoanalyse
 
   TYPES:
     BEGIN OF ENUM enum_risikoanalyse STRUCTURE risikoanalyse,
+      initial,
       "! Eine Risikoanalyse wird empfohlen, ist jedoch nicht zwingend notwendig
       empfohlen,
       "! Eine Risikoanalyse ist nicht notwendig
@@ -13,6 +14,7 @@ INTERFACE zif_lfet02_enum_risikoanalyse
 
   TYPES:
     BEGIN OF ENUM enum_rechtl_rahmenbedingungen STRUCTURE rechtl_rahmenbedingungen,
+      initial,
       "! Es sind keine rechtlichen Rahmenbedingungen zu berücksichtigen
       keine,
       "! Es ist unklar/ nicht geklärt, ob rechtliche Rahmenbedingungen vorhanden sind
@@ -23,6 +25,7 @@ INTERFACE zif_lfet02_enum_risikoanalyse
 
   TYPES:
     BEGIN OF ENUM enum_projektumfang STRUCTURE projektumfang,
+      initial,
       "!<=15
       klein,
       "!16-60
@@ -33,6 +36,7 @@ INTERFACE zif_lfet02_enum_risikoanalyse
 
   TYPES:
     BEGIN OF ENUM enum_ressourcen_abhaengigkeit STRUCTURE ressourcen_abhaengigkeit,
+      initial,
       "!kein Externer, genau 1 Interner
       int1,
       "!kein Externer, mehr als 1 Interner

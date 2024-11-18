@@ -5,7 +5,7 @@
 "! dann muss diese Klasse in einer kundeneigenen Klasse abgeleitet werden. Hierbei müssen die Methoden CUST_IS_*
 "! redefiniert und mit entsprechendem Coding gefüllt werden.
 CLASS zcl_lfet02_enum_modl_risikoana DEFINITION
-  PUBLIC FINAL
+  PUBLIC
   CREATE PUBLIC.
 
   PUBLIC SECTION.
@@ -72,6 +72,7 @@ CLASS zcl_lfet02_enum_modl_risikoana IMPLEMENTATION.
 
   METHOD zif_lfet02_enum_risikoanalyse~is_projektumfang.
     IF values-projektumfang IS INITIAL.
+      values-projektumfang = cust_is_projektumfang( ).
     ENDIF.
     raise_if_initial( values-projektumfang ).
     result = values-projektumfang.
@@ -94,12 +95,6 @@ CLASS zcl_lfet02_enum_modl_risikoana IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD zif_lfet02_enum_risikoanalyse~set_projektumfang.
-    IF values-projektumfang IS INITIAL.
-      values-projektumfang = cust_is_projektumfang( ).
-    ENDIF.
-
-    raise_if_initial( values-projektumfang ).
-
     values-projektumfang = i_value.
   ENDMETHOD.
 
