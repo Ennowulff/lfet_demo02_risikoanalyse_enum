@@ -180,3 +180,38 @@ CLASS ltcl_cust IMPLEMENTATION.
                                         act = model->trace->get_trace( )-used_rule  ).
   ENDMETHOD.
 ENDCLASS.
+
+CLASS ltcl_texts DEFINITION FINAL FOR TESTING
+  DURATION SHORT
+  RISK LEVEL HARMLESS.
+  PRIVATE SECTION.
+    "! make sure that a text is returned for a valid enum value
+    METHODS texts FOR TESTING.
+    "! make sure that an exception is raised if an enum is used that is not supported by this project
+    METHODS wrong_enum FOR TESTING.
+ENDCLASS.
+
+CLASS ltcl_texts IMPLEMENTATION.
+
+  METHOD texts.
+    cl_abap_unit_assert=>assert_equals(
+      exp = 'Risikoanalyse ist nicht notwendig'
+      act = zcl_lfet02_enum_rule_risikoan=>get_text(  zif_lfet02_enum_risikoanalyse=>risikoanalyse-nicht_notwendig ) ).
+  ENDMETHOD.
+
+  METHOD wrong_enum.
+    TYPES: BEGIN OF ENUM wrong_enum,
+             enum_fake,
+           END OF ENUM wrong_Enum.
+
+    TRY.
+        DATA(text) =  zcl_lfet02_enum_rule_risikoan=>get_text( enum_fake ).
+        cl_abap_unit_assert=>fail(  ).
+      CATCH /rbgrp/cx_enum_wrong_type INTO DATA(error).
+        cl_abap_unit_assert=>assert_bound( error ).
+    ENDTRY.
+
+
+  ENDMETHOD.
+
+ENDCLASS.

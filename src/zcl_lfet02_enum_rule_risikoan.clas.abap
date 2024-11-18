@@ -101,7 +101,7 @@ CLASS zcl_lfet02_enum_rule_risikoan IMPLEMENTATION.
                        WHEN c_enum_rechtl_rahmenbedingung THEN get_txt_rechtl_rahmenbed( i_enum )
                        WHEN c_enum_ressourcen_abhaengigkt THEN get_txt_ressourcen_abh( i_enum )
                        WHEN c_enum_risikoanalyse          THEN get_txt_risikoanalyse( i_enum )
-                       ELSE                                    THROW /rbgrp/cx_enum_wrong_value( ) ).
+                       ELSE                                    THROW /rbgrp/cx_enum_wrong_type( ) ).
   ENDMETHOD.
 
   METHOD get_txt_projektumfang.
